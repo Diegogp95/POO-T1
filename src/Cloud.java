@@ -11,7 +11,8 @@ public class Cloud {
         //???
     }
     public void changeLampPowerState(int channel){
-        //??
+        for (Lamp l : lamps)
+            if (l.getChannel() == channel) l.changePowerState();
     }
     public String getHeaders(){
         String header = "";

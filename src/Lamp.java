@@ -29,6 +29,8 @@ public class Lamp {
             return "0\t0\t0";
     }
 
+    public int getId() { return id; }
+
     private Random rand = new Random();
     private int channel;
     private short r,g,b;
