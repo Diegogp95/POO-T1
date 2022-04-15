@@ -15,7 +15,7 @@ public class Operator {
                 out.println("Unexpected device:" + string);
                 System.exit(-1);
             }
-            //???? Hola k suceke Juanma
+            //???? Hola k suceke Juanma hola
         }
     }
     private double time=0;
