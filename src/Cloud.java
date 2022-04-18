@@ -19,19 +19,5 @@ public class Cloud {
         for (Lamp l : lamps)
             if (l.getChannel() == channel) Operator.changeRGB(RGB);
     }
-
-    /*
-    public String getHeaders(){
-        String header = "";
-        for (Lamp l: lamps)
-            header += l.getHeader();
-        return header;
-    }
-    
-    public String getState(){
-        //??
-    }
-    */
-    private int RGB;
     private ArrayList<Lamp> lamps; // getting ready for next stages
 }

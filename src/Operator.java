@@ -1,4 +1,5 @@
 import java.io.PrintStream;
+import java.net.http.HttpClient.Redirect;
 import java.util.Scanner;
 
 public class Operator {
@@ -18,13 +19,14 @@ public class Operator {
             //???? Hola k suceke Juanma hola
         }
     }
-    public void changeRGB(int RGB){
+    public static int red = Lamp.getR();
+    public static void changeRGB(int RGB){
         if (RGB==1){
-            if (Lamp.r > 245) {
-                Lamp.r=256;
+            if (red > 245) {
+                Lamp.changeR(256);
             }
             else {
-                
+                Lamp.change(red+10);
             }
         }
 

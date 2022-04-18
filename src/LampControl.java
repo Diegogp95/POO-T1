@@ -4,33 +4,33 @@ public class LampControl {
         this.cloud = c;
     }
     public void pressRedUp(){
-        cloud.changeLampRGB(int channel, RedUp);
-    }
+        cloud.changeLampRGB(channel, RedUp);
+    }/*
     public void pressRedDown(){
-        cloud.changeLampPowerState(RedDown);
+        cloud.changeLampRGB(RedDown);
     }
     public void pressGreenUp(){
-        cloud.changeLampPowerState(GreenUp);
+        cloud.changeLampRGB(GreenUp);
     }
     public void pressGreenDown(){
-        cloud.changeLampPowerState(GreenDown);
+        cloud.changeLampRGB(GreenDown);
     }
     public void pressBlueUp(){
-        cloud.changeLampPowerState(BlueUp);
+        cloud.changeLampRGB(BlueUp);
     }
     public void pressBlueDown(){
-        cloud.changeLampPowerState(BlueDown);
-    }
+        cloud.changeLampRGB(BlueDown);
+    } */
 
 
 
     public int getChannel(){return channel;}
     private int channel;
     private Cloud cloud;
-    private int RedUp = 1;
+    private int RedUp = 1;/*
     private int RedDown= 2;
     private int BlueUp = 3;
     private int BlueDown = 4;
     private int GreenUp = 5;
-    private int GreenDown = 6;
+    private int GreenDown = 6; */
 }

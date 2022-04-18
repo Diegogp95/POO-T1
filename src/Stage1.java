@@ -22,6 +22,7 @@ public class Stage1 {
         in.nextLine();
         // creating lamps according to <canal0>…..<canalL_1> for just one lamp
         int channel = in.nextInt();
+        numLamps = numLamps + numLampsControl;
 
 
         
