@@ -6,8 +6,8 @@ public class Operator {
         //???
     }
     public void executeCommands(Scanner in, PrintStream out){
-        out.println("Time\t" + cloud.getHeaders());
-        out.println(time+"\t"+cloud.getState());
+        // out.println("Time\t" + cloud.getHeaders());
+        // out.println(time+"\t"+cloud.getState());
         while(in.hasNextInt()){
             time=in.nextInt();
             String string=in.next();
@@ -18,6 +18,21 @@ public class Operator {
             //???? Hola k suceke Juanma hola
         }
     }
+    public void changeRGB(int RGB){
+        if (RGB==1){
+            if (Lamp.r > 245) {
+                Lamp.r=256;
+            }
+            else {
+                
+            }
+        }
+
+
+
+
+    }
+    private int RGB;
     private double time=0;
     private LampControl lampControl;
     private Cloud cloud;

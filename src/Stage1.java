@@ -10,7 +10,9 @@ public class Stage1 {
         }
         Scanner in = new Scanner(new File(args[0]));
         //System.out.println("File: " + args[0]);
+
         Cloud cloud = new Cloud();
+        
         // reading <#_de_cortinas> <#_de_lámparas> <#_controles_cortinas> <#_controles_lámparas>
         in.nextInt();  // skip number of roller shades
         int numLamps = in.nextInt();
@@ -20,6 +22,9 @@ public class Stage1 {
         in.nextLine();
         // creating lamps according to <canal0>…..<canalL_1> for just one lamp
         int channel = in.nextInt();
+
+
+        
         Lamp lamp = new Lamp(channel);
         cloud.addLamp(lamp);
         // skipping creation of roller shade's controls at <canal0>
