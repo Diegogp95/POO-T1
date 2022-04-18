@@ -12,43 +12,68 @@ public class Lamp {
     public int getChannel(){
         return channel;
     }
-    public int getR(){
-        return r;
-    }
-
-    public int getB(){
-        return b;
-    }
-
-    public int getG(){
-        return g;
-    }
-    public void changeR(int RGB){
-        this.r = RGB;
-    }
-
-    public void changeB(int RGB){
-        this.b = RGB;
-    }
-
-    public void changeG(int RGB){
-        this.g = RGB;
-    }
 
     public void changePowerState(){
        if (this.state == LampState.OFF) this.state = LampState.ON;
        else this.state = LampState.OFF;
     }
 
-    /* public String getHeader(){
-       //??
-    } */
+     public String getHeader(){
+       return "header";
+    }
     public String toString(){
         if (state==LampState.ON)
             return ""+r+"\t"+g+"\t"+b;
         else
             return "0\t0\t0";
     }
+
+    public  void changeRGB(int RGB){
+            if (RGB == 1) {
+                if (this.r > 245) {
+                    this.r = 256 ;
+                } else {
+                    this.r = (this.r + 10);
+                }
+            }
+            if (RGB == 2) {
+                if (this.r < 10) {
+                    this.r = (0);
+                } else {
+                    this.r = (this.r - 10);
+                }
+            }
+            if (RGB == 3) {
+                if (this.b > 245) {
+                    this.b = 256 ;
+                } else {
+                    this.b = (this.b + 10);
+                }
+            }
+            if (RGB == 4) {
+                if (this.b < 10) {
+                    this.b = (0);
+                } else {
+                    this.b = (this.b - 10);
+                }
+            }
+            if (RGB == 5) {
+                if (this.g > 245) {
+                    this.g = 256 ;
+                } else {
+                    this.g = (this.g + 10);
+                }
+            }
+            if (RGB == 6) {
+                if (this.g < 10) {
+                    this.g = 0;
+                } else {
+                    this.g = (this.g - 10);
+                }
+            }
+    }
+
+
 
     public int getId() { return id; }
     

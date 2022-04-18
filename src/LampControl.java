@@ -27,10 +27,10 @@ public class LampControl {
     public int getChannel(){return channel;}
     private int channel;
     private Cloud cloud;
-    private int RedUp = 1;/*
+    private int RedUp = 1;
     private int RedDown= 2;
     private int BlueUp = 3;
     private int BlueDown = 4;
     private int GreenUp = 5;
-    private int GreenDown = 6; */
+    private int GreenDown = 6;
 }
