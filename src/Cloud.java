@@ -8,11 +8,17 @@ public class Cloud {
         lamps.add(l);
     }
     public Lamp getLampAtChannel( int channel){
-        //???
+        int id = 0;
+        Lamp L = lamps.get(id);
+        while ( L.getChannel() != channel){
+            id++;
+            L = lamps.get(id);
+        }
+        return L;
     }
     public void changeLampPowerState(int channel){
-        for (Lamp l : lamps)
-            if (l.getChannel() == channel) l.changePowerState();
+        Lamp l = getLampAtChannel(channel);
+        l.changePowerState();
     }
     public String getHeaders(){
         String header = "";
@@ -21,7 +27,11 @@ public class Cloud {
         return header;
     }
     public String getState(){
-        //??
+        String state = "";
+        for (Lamp l : lamps){
+            state += l.toString();
+        }
+        return  state;
     }
     private ArrayList<Lamp> lamps; // getting ready for next stages
 }

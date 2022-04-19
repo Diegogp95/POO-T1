@@ -3,9 +3,9 @@ import java.util.Random;
 public class Lamp {
     public Lamp (int channel){      // constructor que setea canal, inicializa rgb random y estado apagado
         this.channel = channel;
-        this.r = (short) rand.nextInt(256);
-        this.b = (short) rand.nextInt(256);
-        this.g = (short) rand.nextInt(256);
+        this.r = 255;
+        this.b = 255;
+        this.g = 255;
         this.state = LampState.OFF;
     }
     {
@@ -19,10 +19,12 @@ public class Lamp {
        else this.state = LampState.OFF;
     }
 
-    public String getHeader(){
-       //??
+    public String getHeader(){      // crea cabeza de salida, solo lámparas
+       String header = "";
+       header += "L" + id + "R\t" + "L" + id + "G\t" + "L" + id + "B\t";
+       return header;
     }
-    public String toString(){
+    public String toString(){       // crea estado de lámpara para
         if (state==LampState.ON)
             return ""+r+"\t"+g+"\t"+b;
         else
@@ -31,7 +33,7 @@ public class Lamp {
 
     public int getId() { return id; }
 
-    private Random rand = new Random();
+
     private int channel;
     private short r,g,b;
     private LampState state;
