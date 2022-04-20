@@ -53,15 +53,8 @@ public class Cloud {
             header += l.getHeader()+"\t";
         return header;
     }
-    public String getState(){
-        String state = "";
-        DomoticDevice d = getDomoticDeviceAtChannel(rollerShades,channel);
-        RollerShade r = (RollerShade) d;
-        r.startDown();
-        for (Lamp l : lamps){
-            state += l.toString();
-        }
-        return  state;
+    public String getState() {
+        //---
     }
     private ArrayList<DomoticDevice> lamps;
     private ArrayList<DomoticDevice> rollerShades;
