@@ -2,36 +2,47 @@ import java.util.ArrayList;
 
 public class Cloud {
     public Cloud() {
-        lamps = new ArrayList<Lamp>();
+        lamps = new ArrayList<DomoticDevice>();
+        rollerShades = new ArrayList<DomoticDevice>();
     }
     public void addLamp(Lamp l){
         lamps.add(l);
     }
-    public Lamp getLampAtChannel( int channel){
-        int id = 0;
-        Lamp L = lamps.get(id);
-        while ( L.getChannel() != channel){
-            id++;
-            L = lamps.get(id);
+    public void addRollerShade(RollerShade rs){
+        rollerShades.add(rs);
+    }
+    public void advanceTime(double delta){
+        for (DomoticDevice dd: rollerShades) {
+            RollerShade rs =(RollerShade)dd;
+            rs.advanceTime(delta);
         }
-        return L;
+    }
+    private DomoticDevice getDomoticDeviceAtChannel( ArrayList<DomoticDevice> devices, int channel){
+        // ???
     }
     public void changeLampPowerState(int channel){
-        Lamp l = getLampAtChannel(channel);
-        l.changePowerState();
+        // ???
+    }
+    public void startShadeUp(int channel){
+        // ???
+    }
+    public void startShadeDown(int channel){
+        // ???
+    }
+    public void stopShade(int channel){
+        // ???
     }
     public String getHeaders(){
         String header = "";
-        for (Lamp l: lamps)
-            header += l.getHeader();
+        for (DomoticDevice  rs: rollerShades)
+            header += rs.getHeader()+"\t";
+        for (DomoticDevice l: lamps)
+            header += l.getHeader()+"\t";
         return header;
     }
     public String getState(){
-        String state = "";
-        for (Lamp l : lamps){
-            state += l.toString();
-        }
-        return  state;
+        // ???
     }
-    private ArrayList<Lamp> lamps; // getting ready for next stages
+    private ArrayList<DomoticDevice> lamps;
+    private ArrayList<DomoticDevice> rollerShades;
 }
