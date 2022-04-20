@@ -31,16 +31,19 @@ public class Cloud {
         // ???
     } */
     public void startShadeUp(int channel){
-        DomoticDevice r = getDomoticDeviceAtChannel(rollerShades,channel);
+        DomoticDevice d = getDomoticDeviceAtChannel(rollerShades,channel);
+        RollerShade r = (RollerShade) d;
         r.startUp();
     }
     public void startShadeDown(int channel){
-        DomoticDevice r = getDomoticDeviceAtChannel(rollerShades,channel);
+        DomoticDevice d = getDomoticDeviceAtChannel(rollerShades,channel);
+        RollerShade r = (RollerShade) d;
         r.startDown();
     }
     public void stopShade(int channel){
-        DomoticDevice r = getDomoticDeviceAtChannel(rollerShades,channel);
-        r.startUp();
+        DomoticDevice d = getDomoticDeviceAtChannel(rollerShades,channel);
+        RollerShade r = (RollerShade) d;
+        r.stop();
     }
     public String getHeaders(){
         String header = "";
@@ -51,7 +54,14 @@ public class Cloud {
         return header;
     }
     public String getState(){
-        // ???
+        String state = "";
+        DomoticDevice d = getDomoticDeviceAtChannel(rollerShades,channel);
+        RollerShade r = (RollerShade) d;
+        r.startDown();
+        for (Lamp l : lamps){
+            state += l.toString();
+        }
+        return  state;
     }
     private ArrayList<DomoticDevice> lamps;
     private ArrayList<DomoticDevice> rollerShades;

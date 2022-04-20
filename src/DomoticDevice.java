@@ -14,4 +14,5 @@ public abstract class DomoticDevice {
     public abstract String getHeader();
     private final int id;
     private int channel;
+
 }
