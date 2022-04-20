@@ -7,12 +7,8 @@ public class RollerShade extends DomoticDevice {
     public void startUp(){
         motor.turnUp();
     }
-    public void startDown(){
-        // ??
-    }
-    public void stop(){
-        // ??
-    }
+    public void startDown(){motor.turnDown(); }
+    public void stop(){{motor.stop(); }
     public void advanceTime(double delta){
         motor.advanceTime(delta);
     }
@@ -37,12 +33,8 @@ public class RollerShade extends DomoticDevice {
         public void turnUp(){
             state = MotorState.UPWARD;
         }
-        public void turnDown(){
-            // ??
-        }
-        public void stop(){
-            // ??
-        }
+        public void turnDown(){state = MotorState.DOWNWARD;}
+        public void stop(){state = MotorState.STOPPED;}
         public void advanceTime(double delta){
             double increment = alpha*delta*RADIUS;
             switch (state) {
