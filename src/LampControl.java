@@ -1,3 +1,4 @@
+/*
 public class LampControl extends DomoticDeviceControl {
     public LampControl(int channel, Cloud c){
         // ???
@@ -5,4 +6,4 @@ public class LampControl extends DomoticDeviceControl {
     public void pressPower(){
         cloud.changeLampPowerState(channel);
     }
-}
+} */

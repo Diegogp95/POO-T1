@@ -1,14 +1,12 @@
 public class RollerShade extends DomoticDevice {
     public RollerShade (int channel, double alpha, double length) {
-        // ???
+        // ??
         motor = new Motor(alpha);
         // ??
     }
-    public void startUp(){
-        motor.turnUp();
-    }
-    public void startDown(){motor.turnDown(); }
-    public void stop(){{motor.stop(); }
+    public void startUp(){motor.turnUp();}
+    public void startDown(){motor.turnDown();}
+    public void stop(){{motor.stop();}
     public void advanceTime(double delta){
         motor.advanceTime(delta);
     }

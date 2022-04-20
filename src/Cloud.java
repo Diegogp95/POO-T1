@@ -18,19 +18,29 @@ public class Cloud {
         }
     }
     private DomoticDevice getDomoticDeviceAtChannel( ArrayList<DomoticDevice> devices, int channel){
-        // ???
+        int id = 0;
+        DomoticDevice R = rollerShades.get(id);
+        while ( R.getChannel() != channel){
+            id++;
+            R = rollerShades.get(id);
+        }
+        return R;   // Dudoso
     }
+    /*
     public void changeLampPowerState(int channel){
         // ???
-    }
+    } */
     public void startShadeUp(int channel){
-        // ???
+        DomoticDevice r = getDomoticDeviceAtChannel(rollerShades,channel);
+        r.startUp();
     }
     public void startShadeDown(int channel){
-        // ???
+        DomoticDevice r = getDomoticDeviceAtChannel(rollerShades,channel);
+        r.startDown();
     }
     public void stopShade(int channel){
-        // ???
+        DomoticDevice r = getDomoticDeviceAtChannel(rollerShades,channel);
+        r.startUp();
     }
     public String getHeaders(){
         String header = "";
