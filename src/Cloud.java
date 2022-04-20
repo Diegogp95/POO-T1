@@ -5,9 +5,10 @@ public class Cloud {
         lamps = new ArrayList<DomoticDevice>();
         rollerShades = new ArrayList<DomoticDevice>();
     }
+    /*
     public void addLamp(Lamp l){
         lamps.add(l);
-    }
+    } */
     public void addRollerShade(RollerShade rs){
         rollerShades.add(rs);
     }
@@ -53,8 +54,10 @@ public class Cloud {
             header += l.getHeader()+"\t";
         return header;
     }
-    public String getState() {
-        //---
+    public String getState() {  // Revisar entrada del State
+        DomoticDevice d = getDomoticDeviceAtChannel(rollerShades,channel);
+        RollerShade r = (RollerShade) d;
+        return r.getState();
     }
     private ArrayList<DomoticDevice> lamps;
     private ArrayList<DomoticDevice> rollerShades;

@@ -16,6 +16,9 @@ public class RollerShade extends DomoticDevice {
     public void stop() {
         motor.stop();
     }
+    public String getState(){
+        return motor.GetMotorState();
+    }
 
     public void advanceTime ( double delta){motor.advanceTime(delta);}
     public String getHeader () {
@@ -36,7 +39,17 @@ public class RollerShade extends DomoticDevice {
             STOPPED,
             DOWNWARD
         }
-
+        public String GetMotorState(){
+            if (state==MotorState.STOPPED){
+                return "Stop";
+            }
+            if (state==MotorState.UPWARD{
+                return "Arriba";
+            }
+            if (state==MotorState.DOWNWARD){
+                return "Abajo";
+            }
+        }
         public void turnUp() {
             state = MotorState.UPWARD;
         }
