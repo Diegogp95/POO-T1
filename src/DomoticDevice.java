@@ -3,7 +3,9 @@ public abstract class DomoticDevice {
         this.channel = channel;
         this.id     = id;
     }
-
+    public DomoticDevice(){
+        this.channel=channel;
+    }
 
     public int getChannel() {
         return channel;
@@ -12,7 +14,7 @@ public abstract class DomoticDevice {
         return id;
     }
     public abstract String getHeader();
-    protected final int id;
+    protected int id;
     protected int channel;
 
 }

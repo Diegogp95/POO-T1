@@ -1,5 +1,6 @@
 public class ShadeControl extends DomoticDeviceControl{
     public ShadeControl(int channel, Cloud c){
+        // super(channel); falta arreglar shadecontrol
         this.channel= channel;
         this.cloud=c;
     }
