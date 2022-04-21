@@ -12,7 +12,7 @@ public abstract class DomoticDevice {
         return id;
     }
     public abstract String getHeader();
-    private final int id;
-    private int channel;
+    protected final int id;
+    protected int channel;
 
 }

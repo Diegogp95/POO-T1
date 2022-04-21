@@ -20,7 +20,7 @@ public class Cloud {
     }
     private DomoticDevice getDomoticDeviceAtChannel( ArrayList<DomoticDevice> devices, int channel){
         int id = 0;
-        DomoticDevice R = rollerShades.get(id);
+        DomoticDevice R = devices.get(id);
         while ( R.getChannel() != channel){
             id++;
             R = rollerShades.get(id);
@@ -55,9 +55,12 @@ public class Cloud {
         return header;
     }
     public String getState() {  // Revisar entrada del State
-        DomoticDevice d = getDomoticDeviceAtChannel(rollerShades,channel);
-        RollerShade r = (RollerShade) d;
-        return r.getState();
+        String Estados = "";
+        for (DomoticDevice d:rollerShades) {
+            RollerShade r = (RollerShade) d;
+            Estados += r.getState();
+        }
+        return Estados;
     }
     private ArrayList<DomoticDevice> lamps;
     private ArrayList<DomoticDevice> rollerShades;
