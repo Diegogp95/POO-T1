@@ -1,11 +1,44 @@
-Se sacan DD de los arrays con un loop interno en metodos para realizar alguna acción sobre estos DD,
-se usa una variable static 'pos'.
-Se cambiaron algunos constructores, como RollerShade().
-Se utilizan los números de lámparas y cortinas para construir la nube.
-Se reutilizaron y adecuaron las clases Lamp y LampControl.
+ACTUALIZACION 22/4/22
+DDC = DomoticDiviceControl
+EN GENERAL:
+Todo funcionando, alguna partes avanzadas incluso para la siguiente etapa
+El codigo esta comentado en su mayoria no deberian quedar dudas de su funcionamiento
+
+CAMBIOS:
+*En cloud saque los metodos que funcionaban con pos, estaban generando un error critico al recorrer
+ la lista con un while que sumaba en dos metodos diferentes, generaba dos errores, uno era que se
+ pasaba del largo del arreglo que recorria. El segundo error era que cuando llegaba al final del
+ arreglo entregaba el ultimo objeto de este a pesar de que no perteneciera al canal que se buscaba.
+ Opte por simplemente cambiar a la busqueda en lista clasica, usando for y despues con cast para
+ usar el metodo de la subclase.
+*Mejore la clase Stage para que sea capaz de recibir muchas cosas de todas las demas clases
+ (muchas lamparas, cortinas, controles de cortinas y controles de lamparas)
+*En Operador agrege un primer print en donde saca la informacion de estado de las lamparas como 
+ lo hace normalmente, pero la de las lamparas las saca de un metodo especial capaz de dar los
+ colores 255 a pesar de estar la lampara apagada (se pedia en el eneunciado de la tarea)
+
+Agregado:
+*Classe operador casi todo, falta agregar unas cosas nomas que quedaron comentadas en los case
+*Se agrego la forma de generar id unicos para cada objeto istanceado en lampara o cortina
+
+A TENER EN CUENTA:
+*Al darle un arreglo de DDC al operador pueden haber problemas si se tienen multiples controles
+ de la misma clase con el mismo canal, esto hara que se ejecuten multiples veces el comando recibido.
+*Detalle a tener en cuenta es que no se imprime en pantalla el resultado en state de cada vez que
+ se ejecuta un comando al tiempo respectivo, se deja que imprima solo cuando el while de 
+ commandTime imprime, esta es la razon por la cual en algunos momentos imprime desfasado por
+ decimas de segundo con el tiempo en donde se dio el comando. Se puede arreglar agregando un 
+ print cada vez que se ejecute un comando en los switch's.
+*Cuidado al crear el archivo configuraciones.txt, si se da una cantidad determinada de cortinas
+ estar seguro de que se rellenara la informacion de esas dos cortinas luego en la segunda fila,
+ lo mismo con las lamparas y controles. Si no se completa la informacion correspondiente o se
+ identa mal esta con los "tabs" aparecera el error "Exception in thread "main"_
+ java.util.InputMismatchException". El error es debido a que se lee informacion que no es la
+ esperada por formato.
 
 TO DO:
-*La clase Operador es totalmente diferente en esta etapa.
-*Revisar implementación de la Id de los DD.
-
-DD = DemoticDevice
+*Faltarian los metodos para controlar las luces de las lamparas y agregarlos a las clases
+ que correspondan las llamadas
+*Faltarian los metodos para controlar la tela de la cortina y las respectivas llamadas en las
+ clases que correspondan
+*Leer las demas etapas para ver que falta

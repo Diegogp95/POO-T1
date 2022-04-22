@@ -1,15 +1,18 @@
 public abstract class DomoticDevice {
-    public DomoticDevice(int id, int ch){
-        this.id = id;
+    // Metodo constructor para crear objetos DD, tener en cuenta que DD es abstract
+    public DomoticDevice(int ch){
         this.channel = ch;
     }
+    // Metodo para obtener el canal del DD, transversal para los objetos cortina/lampara
     public int getChannel() {
         return channel;
     }
-    public int getId() {
-        return id;
-    }
+    // Metodos que se utilizaran dentro de cada clase lampara/cortina pero que varian dependiendo
+    // de cada clase por lo que se definen abstract
+    public abstract int getId();
     public abstract String getHeader();
-    private final int id;
+    public abstract String toString();
+
+ 
     private int channel;
 }
