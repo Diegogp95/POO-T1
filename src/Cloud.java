@@ -82,7 +82,7 @@ public class Cloud {
             state += RS.toString() + "\t";
         }
         for (DomoticDevice l: lamps){
-            state += l.getHeader()+"\t";
+            state += l.toString()+"\t";
         }
         return state;
     }
