@@ -38,88 +38,96 @@ public class Operator {
                     switch (command.charAt(0)){           // .chartAt(0) devuelve la letra guardada en command(0) y la usa en el switch, switch para operar
                         // Casos para la cortina
                         case 'D':
-                        if (arregloControles.get(i) instanceof ShadeControl){                  // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
-                            ShadeControl castControl = (ShadeControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
-                            castControl.startDown();
-                        }
+                            if (arregloControles.get(i) instanceof ShadeControl){                  // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                ShadeControl castControl = (ShadeControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                castControl.startDown();
+                            }
                         break;
                         case 'U':
-                        if (arregloControles.get(i) instanceof ShadeControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
-                            ShadeControl castControl = (ShadeControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
-                            castControl.startUp();
-                        }
+                            if (arregloControles.get(i) instanceof ShadeControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                ShadeControl castControl = (ShadeControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                castControl.startUp();
+                            }
                         break;
                         case 'S':
-                        if (arregloControles.get(i) instanceof ShadeControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
-                            ShadeControl castControl = (ShadeControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
-                            castControl.stop();
-                        }
+                            if (arregloControles.get(i) instanceof ShadeControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                ShadeControl castControl = (ShadeControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                castControl.stop();
+                            }
                         break;
                         // Casos para la lampara
                         case 'P':                       // Caso de encender o apagar la lampara
                             if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
-                                LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
-                                castControl.pressPower();
+                                    LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                    castControl.pressPower();
+                                }
+                        break;
+
+                        case 'R':                       // Caso en donde se le manda un mensaje a la lampara, al color R
+                            if (arregloControles.get(i) instanceof LampControl) {
+                                String commandRGB = in.next();
+                                switch (commandRGB.charAt(0)) {
+                                    case 'U':
+                                        if (arregloControles.get(i) instanceof LampControl) {                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                            LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                            castControl.pressRU();
+                                        }
+                                        break;
+                                    case 'D':
+                                        if (arregloControles.get(i) instanceof LampControl) {                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                            LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                            castControl.pressRD();
+                                        }
+                                        break;
+                                    default:
+                                        out.println("Unexpected command Lamp:" + commandRGB);
+                                        System.exit(-1);
+                                }
                             }
                         break;
-                        case 'R':                       // Caso en donde se le manda un mensaje a la lampara, al color R
-                            String comandoR = in.next();
-                            switch (comandoR.charAt(0)){
-                                case 'U':
-                                    if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
-                                        LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
-                                        castControl.pressRD();
-                                    }
-                                break;
-                                case 'D':
-                                    if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
-                                        LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
-                                        castControl.pressRU();
-                                    }
-                                break;
-                                default:
-                                out.println("Unexpected command Lamp:" + comandoR);           
-                                System.exit(-1);
-                            }
-                            break;
+
                         case 'G':                       // Caso en donde se le manda un mensaje a la lampara, al color G
-                            String comandoG = in.next();
-                            switch (comandoG.charAt(0)){
-                                case 'U':
-                                    if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
-                                        LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
-                                        castControl.pressGU();
-                                    }
-                                break;
-                                case 'D':
-                                    if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
-                                        LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
-                                        castControl.pressGD();
-                                    }
-                                break;
-                                default:
-                                out.println("Unexpected command Lamp:" + comandoG);           
-                                System.exit(-1);
+                            if (arregloControles.get(i) instanceof LampControl) {
+                                String commandRGB = in.next();
+                                switch (commandRGB.charAt(0)) {
+                                    case 'U':
+                                        if (arregloControles.get(i) instanceof LampControl) {                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                            LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                            castControl.pressGU();
+                                        }
+                                        break;
+                                    case 'D':
+                                        if (arregloControles.get(i) instanceof LampControl) {                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                            LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                            castControl.pressGD();
+                                        }
+                                        break;
+                                    default:
+                                        out.println("Unexpected command Lamp:" + commandRGB);
+                                        System.exit(-1);
+                                }
                             }
-                            break;
+                        break;
                         case 'B':                       // Caso en donde se le manda un mensaje a la lampara, al color B
-                            String comandoB = in.next();
-                            switch (comandoB.charAt(0)){
-                                case 'U':
-                                    if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
-                                        LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
-                                        castControl.pressBU();
-                                    }
-                                break;
-                                case 'D':
-                                    if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
-                                        LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
-                                        castControl.pressBD();
-                                    }
-                                break;
-                                default:
-                                out.println("Unexpected command Lamp:" + comandoB);           
-                                System.exit(-1);
+                            if (arregloControles.get(i) instanceof LampControl) {
+                                String commandRGB = in.next();
+                                switch (commandRGB.charAt(0)){
+                                    case 'U':
+                                        if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                            LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                            castControl.pressBU();
+                                        }
+                                    break;
+                                    case 'D':
+                                        if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                            LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                            castControl.pressBD();
+                                        }
+                                    break;
+                                    default:
+                                    out.println("Unexpected command Lamp:" + commandRGB);
+                                    System.exit(-1);
+                                }
                             }
                         break;
                         default: out.println("Unexpected command:" + command);
@@ -130,6 +138,7 @@ public class Operator {
         }
         out.println(time+"\t"+cloud.getState());                // Una vez ya no queda nada que leer en comandos imprime el ultimo estado de todo
     }
+    private String Down = "D";
     private double time=0;
     private Cloud cloud;
     private final double delta=0.1;
