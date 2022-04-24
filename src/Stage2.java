@@ -74,6 +74,6 @@ public class Stage2 {
 
         
         // Se ejecuta un metodo de operador encargado de llevar a cabo los comandos del txt
-        operator.executeCommands(in, System.out);
+        operator.executeCommands(in, System.out); //Listo
     }
 }
