@@ -57,16 +57,25 @@ public class Operator {
                         break;
                         // Casos para la lampara
                         case 'P':                       // Caso de encender o apagar la lampara
-                            // Se debe mandar el mensaje al control lampara para que prenda/apague
+                            if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                castControl.pressPower();
+                            }
                         break;
                         case 'R':                       // Caso en donde se le manda un mensaje a la lampara, al color R
                             String comandoR = in.next();
                             switch (comandoR.charAt(0)){
                                 case 'U':
-                                // Se deberia ejecutar el metodo para subir la luz roja
+                                    if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                        LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                        castControl.pressRD();
+                                    }
                                 break;
                                 case 'D':
-                                // Se deberia ejecutar el metodo para bajar la luz roja
+                                    if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                        LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                        castControl.pressRU();
+                                    }
                                 break;
                                 default:
                                 out.println("Unexpected command Lamp:" + comandoR);           
@@ -77,10 +86,16 @@ public class Operator {
                             String comandoG = in.next();
                             switch (comandoG.charAt(0)){
                                 case 'U':
-                                // Se deberia ejecutar el metodo para subir la luz roja
+                                    if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                        LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                        castControl.pressGU();
+                                    }
                                 break;
                                 case 'D':
-                                // Se deberia ejecutar el metodo para bajar la luz roja
+                                    if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                        LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                        castControl.pressGD();
+                                    }
                                 break;
                                 default:
                                 out.println("Unexpected command Lamp:" + comandoG);           
@@ -91,10 +106,16 @@ public class Operator {
                             String comandoB = in.next();
                             switch (comandoB.charAt(0)){
                                 case 'U':
-                                // Se deberia ejecutar el metodo para subir la luz roja
+                                    if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                        LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                        castControl.pressBU();
+                                    }
                                 break;
                                 case 'D':
-                                // Se deberia ejecutar el metodo para bajar la luz roja
+                                    if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de cortina, de no ser no deberia ejecutar D(posible error externo)
+                                        LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase ShadeControl para usar metodos
+                                        castControl.pressBD();
+                                    }
                                 break;
                                 default:
                                 out.println("Unexpected command Lamp:" + comandoB);           

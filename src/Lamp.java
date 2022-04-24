@@ -37,6 +37,57 @@ public class Lamp extends DomoticDevice{
         ON,
         OFF
     }
+    public  void changeRU(){
+        if (this.r > 245) {
+            this.r = 255;
+        } else {
+            this.r = (short) (this.r + 10);
+        }
+    }
+
+    public  void changeRD(){
+        if (this.r < 10) {
+            this.r = (0);
+        } else {
+            this.r = (short) (this.r - 10);
+        }
+    }
+
+    public  void changeGU(){
+        if (this.g > 245) {
+            this.g = 255;
+        } else {
+            this.g = (short) (this.g + 10);
+        }
+    }
+
+
+
+    public  void changeGD(){
+        if (this.g < 10) {
+            this.g = (0);
+        } else {
+            this.g = (short) (this.g - 10);
+        }
+    }
+
+
+
+    public  void changeBU(){
+        if (this.b > 245) {
+            this.b = 255;
+        } else {
+            this.b = (short) (this.b + 10);
+        }
+    }
+    public  void changeBD(){
+        if (this.b < 10) {
+            this.b = (0);
+        } else {
+            this.b = (short) (this.b - 10);
+        }
+    }
+
 
     private short r,g,b;
     private LampState state;

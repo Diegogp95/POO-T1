@@ -32,6 +32,60 @@ public class Cloud {
             }
         }
     }
+    public void changeLampRU(int channel){
+        for (DomoticDevice l: lamps){
+            if (l.getChannel() == channel){
+                Lamp LP = (Lamp)l;
+                LP.changeRU();
+            }
+        }
+    }
+    public void changeLampRD(int channel){
+        for (DomoticDevice l: lamps){
+            if (l.getChannel() == channel){
+                Lamp LP = (Lamp)l;
+                LP.changeRD();
+            }
+        }
+    }
+    public void changeLampBU(int channel){
+        for (DomoticDevice l: lamps){
+            if (l.getChannel() == channel){
+                Lamp LP = (Lamp)l;
+                LP.changeBU();
+            }
+        }
+    }
+    public void changeLampBD(int channel){
+        for (DomoticDevice l: lamps){
+            if (l.getChannel() == channel){
+                Lamp LP = (Lamp)l;
+                LP.changeBD();
+            }
+        }
+    }
+    public void changeLampGU(int channel){
+        for (DomoticDevice l: lamps){
+            if (l.getChannel() == channel){
+                Lamp LP = (Lamp)l;
+                LP.changeGU();
+            }
+        }
+    }
+    public void changeLampGD(int channel){
+        for (DomoticDevice l: lamps){
+            if (l.getChannel() == channel){
+                Lamp LP = (Lamp)l;
+                LP.changeGD();
+            }
+        }
+    }
+
+
+
+
+
+
     // Metodo utilizado para cambiar el estado de los objetos motor dentro de cortinas, a su vez dentro del arreglo de DD de cortinas,
     // sube la cortina a travez de la clase anidada motor
     public void startShadeUp(int channel){
