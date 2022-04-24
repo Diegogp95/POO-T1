@@ -152,6 +152,8 @@ public class Cloud {
         }
         return content;
     }
+
+
     private ArrayList<DomoticDevice> lamps;
     private ArrayList<DomoticDevice> rollerShades;
 }

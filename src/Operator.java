@@ -141,6 +141,6 @@ public class Operator {
     private String Down = "D";
     private double time=0;
     private Cloud cloud;
-    private final double delta=0.1;
+    private final double delta=0.5;
     private ArrayList<DomoticDeviceControl> arregloControles;
 }

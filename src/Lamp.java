@@ -87,6 +87,10 @@ public class Lamp extends DomoticDevice{
             this.b = (short) (this.b - 10);
         }
     }
+    public int getIntensity(){
+        int I = r+g+b;
+        return I;
+    }
 
 
     private short r,g,b;

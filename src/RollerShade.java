@@ -41,12 +41,7 @@ public class RollerShade extends DomoticDevice {
     // CUANDO SE BUSQUE LA FUNCIONALIDAD COMPLETA DEL PROGRAMA
     public String toString(){
         String s = "";
-        switch (motor.state){
-            case STOPPED: s += "0"; break;
-            case UPWARD: s+= "100"; break;
-            case DOWNWARD: s+= "-100"; break;
-
-        }
+        s += length;
         return s;
     }
     // Clase anidada motor, solo se usa en RollerShade
@@ -76,10 +71,12 @@ public class RollerShade extends DomoticDevice {
             switch (state) {
                 case STOPPED: break;
                 case DOWNWARD:
-                    //??
+                    length += increment;
+                    LimitSwitchSensor();
                     break;
                 case UPWARD:
-                    // ??
+                    length -= increment;
+                    LimitSwitchSensor();
                     break;
             }
         }
@@ -92,6 +89,23 @@ public class RollerShade extends DomoticDevice {
         STOPPED,
         DOWNWARD
     }
+
+    public void LimitSwitchSensor(){        // Sensor de fin de carrera, detiene el motor si se llega al sensor,
+                                            // se llama en cada avance de tiempo con motor UP o DOWN
+        if( length < 0){
+            length = 0;
+            this.stop();
+            return;
+        }
+        else {
+            if (length > MaxShadeLength){
+                length = MaxShadeLength;
+                this.stop();
+            }
+            return;
+        }
+    }
+
     private Motor motor;
     private double length;
     private final double MaxShadeLength;
