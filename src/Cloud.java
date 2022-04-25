@@ -153,6 +153,16 @@ public class Cloud {
         return content;
     }
 
+    // Método para comparar las intensidades de las lamparas en un canal con un valor umbral
+    // Retorna un lógico TRUE solo si todas las lámparas en el canal superan el umbral
+    public boolean compareIntensity(int ch, int th){
+        boolean flag = true;
+        for (DomoticDevice l : lamps){
+            Lamp lamp = (Lamp) l;
+            flag = flag && (lamp.getIntensity() > th);
+        }
+        return flag;
+    }
 
     private ArrayList<DomoticDevice> lamps;
     private ArrayList<DomoticDevice> rollerShades;

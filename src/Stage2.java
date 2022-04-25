@@ -19,7 +19,7 @@ public class Stage2 {
         in.useLocale(Locale.ENGLISH);                           // Necesario cambiar a English para que reconozca puntos en ves de comas para decimales
 
         // reading <#_de_cortinas> <#_de_lámparas> <#_controles_cortinas> <#_controles_lámparas>
-        int numRollerShades = in.nextInt();     // Se lee el numero de cortinas y se guarda en numRollerShades      
+        int numRollerShades = in.nextInt();     // Se lee el numero de cortinas y se guarda en numRollerShades
         int numLamps = in.nextInt();            // Se lee el numero de lamparas y se guarda en numLamps
         int numShadeControls = in.nextInt();    // Se lee el numero de controles de cortina y se guarda en numShadeControls
         int numLampsControls = in.nextInt();    // Se lee el numero de controles de lamparas y se guarda en numLampsControls
@@ -50,6 +50,8 @@ public class Stage2 {
             //System.out.println(lampara.getId());        // Se imprimen los id de cada objeto creado
             cloud.addLamp(lampara);
         }
+
+
 
         // Clase Operator utilizada para crear un objeto operator
         Operator operator = new Operator(cloud);
