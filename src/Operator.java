@@ -15,9 +15,9 @@ public class Operator {
     // Metodo principal de operador, este se encarga de leer el txt y dar el inicio de la cadena
     // de metodos que resultaran en la impresion del .csv
     public void executeCommands(Scanner in, PrintStream out){
-        // Imprime el encabezado y el contenido de las lamparas/cortinas ya creadas en stage 2
+        // Imprime el encabezado y el contenido de las lamparas/cortinas ya creadas en stage 2 dependiendo de sus estados
         out.println("Time\t" + cloud.getHeaders());
-        out.println(time+"\t"+ cloud.getStateInitial());
+
         // Siempre y cuando el siguiente token pueda ser interpretado como int estara en el while
         while(in.hasNextInt()){
             int commandTime=in.nextInt();                   // El commandtime es el primer numero de la linea de comando
@@ -57,57 +57,67 @@ public class Operator {
                         break;
                         // Casos para la lampara
                         case 'P':                       // Caso de encender o apagar la lampara
-                            // Se debe mandar el mensaje al control lampara para que prenda/apague
+                            if (arregloControles.get(i) instanceof LampControl){                   // Se pregunta si es control de lamp, de no ser no deberia ejecutar D(posible error externo)
+                                LampControl castControl = (LampControl) arregloControles.get(i);  // Se castea a clase Lampcontrol para usar metodos
+                                castControl.pressPower();
+                            }
                         break;
                         case 'R':                       // Caso en donde se le manda un mensaje a la lampara, al color R
-                            String comandoR = in.next();
-                            switch (comandoR.charAt(0)){
-                                case 'U':
-                                // Se deberia ejecutar el metodo para subir la luz roja
-                                break;
-                                case 'D':
-                                // Se deberia ejecutar el metodo para bajar la luz roja
-                                break;
-                                default:
-                                out.println("Unexpected command Lamp:" + comandoR);           
-                                System.exit(-1);
+                            if (arregloControles.get(i) instanceof LampControl){
+                                String comandoR = in.next();
+                                switch (comandoR.charAt(0)){
+                                    case 'U':
+                                        // Se deberia ejecutar el metodo para subir la luz roja
+                                    break;
+                                    case 'D':
+                                        // Se deberia ejecutar el metodo para subir la luz roja
+                                    break;
+                                    default:
+                                    out.println("Unexpected command Lamp: " + comandoR);           
+                                    System.exit(-1);
+                                    break;
+                                }
                             }
-                            break;
+                        break;
                         case 'G':                       // Caso en donde se le manda un mensaje a la lampara, al color G
-                            String comandoG = in.next();
-                            switch (comandoG.charAt(0)){
-                                case 'U':
-                                // Se deberia ejecutar el metodo para subir la luz roja
-                                break;
-                                case 'D':
-                                // Se deberia ejecutar el metodo para bajar la luz roja
-                                break;
-                                default:
-                                out.println("Unexpected command Lamp:" + comandoG);           
-                                System.exit(-1);
+                            if (arregloControles.get(i) instanceof LampControl){
+                                String comandoG = in.next();
+                                switch (comandoG.charAt(0)){
+                                    case 'U':
+                                        // Se deberia ejecutar el metodo para subir la luz verde
+                                    break;
+                                    case 'D':
+                                        // Se deberia ejecutar el metodo para bajar la luz verde
+                                    break;
+                                    default:
+                                    out.println("Unexpected command Lamp:" + comandoG);           
+                                    System.exit(-1);
+                                }
                             }
-                            break;
+                        break;
                         case 'B':                       // Caso en donde se le manda un mensaje a la lampara, al color B
-                            String comandoB = in.next();
-                            switch (comandoB.charAt(0)){
-                                case 'U':
-                                // Se deberia ejecutar el metodo para subir la luz roja
-                                break;
-                                case 'D':
-                                // Se deberia ejecutar el metodo para bajar la luz roja
-                                break;
-                                default:
-                                out.println("Unexpected command Lamp:" + comandoB);           
-                                System.exit(-1);
+                            if (arregloControles.get(i) instanceof LampControl){
+                                String comandoB = in.next();
+                                switch (comandoB.charAt(0)){
+                                    case 'U':
+                                        // Se deberia ejecutar el metodo para subir la luz azul
+                                    break;
+                                    case 'D':
+                                        // Se deberia ejecutar el metodo para bajar la luz azul
+                                    break;
+                                    default:
+                                    out.println("Unexpected command Lamp:" + comandoB);           
+                                    System.exit(-1);
+                                }
                             }
                         break;
                         default: out.println("Unexpected command:" + command);
                             System.exit(-1);
+                        break;
                     }
                 }
             }
         }
-        out.println(time+"\t"+cloud.getState());                // Una vez ya no queda nada que leer en comandos imprime el ultimo estado de todo
     }
     private double time=0;
     private Cloud cloud;

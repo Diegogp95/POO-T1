@@ -86,18 +86,7 @@ public class Cloud {
         }
         return state;
     }
-    // Metodo creado solo para dar los valores iniciales de las lamparas en donde
-    // estas estan apagadas pero con todos sus valores en 255
-    public String getStateInitial(){
-        String content = "";
-        for (int i=0 ; i < rollerShades.size(); i++){
-            content += "0\t";
-        }
-        for (int i=0 ; i < lamps.size(); i++){
-            content += "255\t255\t255\t";
-        }
-        return content;
-    }
+    
     private ArrayList<DomoticDevice> lamps;
     private ArrayList<DomoticDevice> rollerShades;
 }
